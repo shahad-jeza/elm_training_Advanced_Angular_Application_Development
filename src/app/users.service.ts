@@ -6,16 +6,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsersService {
-  private apiURL = 'https://jsonplaceholder.typicode.com/users'
-  private postsUrl = 'https://jsonplaceholder.typicode.com/posts'
+  private usersUrl = 'https://jsonplaceholder.typicode.com/users';
+  private postsUrl = 'https://jsonplaceholder.typicode.com/posts';
+
   constructor(private http: HttpClient) { }
 
-  getUsers():Observable<any>{
-    return this.http.get<any>(this.apiURL);
+  // Fetch all users
+  getUsers(): Observable<any> {
+    return this.http.get<any>(this.usersUrl);
   }
 
-    // Fetch posts for a specific user
-    getPostsForUser(userId: number): Observable<any> {
-      return this.http.get<any>(`${this.postsUrl}?userId=${userId}`);
-    }
+  // Fetch posts for a specific user
+  getPostsForUser(userId: number): Observable<any> {
+    return this.http.get<any>(`${this.postsUrl}?userId=${userId}`);
+  }
 }

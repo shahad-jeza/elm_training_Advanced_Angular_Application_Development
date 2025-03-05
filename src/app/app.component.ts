@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { UserListComponent } from './user-list/user-list.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet ,UserListComponent],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  standalone: true,
+  imports: [RouterModule], // Import RouterModule for <router-outlet>
+  template: `<router-outlet></router-outlet>`
 })
-export class AppComponent {
-  title = 'user-profiles-and-posts';
-}
+export class AppComponent {}

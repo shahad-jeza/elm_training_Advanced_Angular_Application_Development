@@ -1,0 +1,34 @@
+<div class="container mt-5">
+  <div *ngIf="user" class="card shadow-lg border-0 rounded-4 overflow-hidden">
+    <div 
+      class="card-header p-3 text-white" 
+      style="background: linear-gradient(135deg, #007bff, #6610f2);"
+    >
+      <h5 class="card-title mb-1 fw-bold text-white">{{ user.name }}</h5>
+      <small class="text-light">{{ user.email }}</small>
+    </div>
+    <div class="card-body p-4">
+      <p class="card-text mb-2">
+        <i class="bi bi-geo-alt-fill text-danger"></i> 
+        <strong>Address:</strong> {{ user.address.street }}, {{ user.address.city }}, {{ user.address.zipcode }}
+      </p>
+      <p class="card-text mb-2">
+        <i class="bi bi-telephone-fill text-success"></i> 
+        <strong>Phone:</strong> {{ user.phone }}
+      </p>
+      <p class="card-text">
+        <i class="bi bi-globe text-primary"></i> 
+        <strong>Website:</strong> 
+        <a [href]="'http://' + user.website" target="_blank" class="text-decoration-none fw-bold text-primary">{{ user.website }}</a>
+      </p>
+    </div>
+  </div>
+
+  <h4 class="mt-5 text-primary fw-bold">Posts</h4>
+  <ul class="list-group">
+    <li *ngFor="let post of posts" class="list-group-item border-0 shadow-sm rounded-3 mb-3">
+      <h6 class="fw-bold text-dark">{{ post.title }}</h6>
+      <p class="card-text text-muted">{{ post.body }}</p>
+    </li>
+  </ul>
+</div>
